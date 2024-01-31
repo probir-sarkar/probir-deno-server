@@ -1,0 +1,25 @@
+# Deno cache
+.cache
+
+# Deno test results
+deno-test-results
+
+# Deno coverage reports
+coverage
+
+# Deno logs
+*.log
+
+# Deno compiled files
+*.js
+
+# Deno TypeScript declaration files
+*.d.ts
+
+# Deno lock file
+lock.json
+
+# Ignore all local .env files
+.env*
+
+*.code-workspace
