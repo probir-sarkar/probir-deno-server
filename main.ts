@@ -1,11 +1,13 @@
-import { Hono } from "https://deno.land/x/hono@v3.12.8/mod.ts";
-import io from "./configs/socket.ts";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
+import "jsr:@std/dotenv/load";
+import env from "@/configs/env.ts";
+import probirRoute from "@/probir/route.ts";
+
 const app = new Hono();
-app.get("/", (c) => c.text("Welcome to dinosaur API!"));
+app.use(cors({ origin: env.CORS }));
 
-import "./sockets.ts";
-io.on("connection", () => {
-  console.log("a user connected");
-});
+app.route("/probir", probirRoute);
+export default app;
 
-Deno.serve(io.handler(app.fetch));
+Deno.serve(app.fetch);
