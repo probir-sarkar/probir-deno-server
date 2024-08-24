@@ -5,7 +5,7 @@
     "zod": "https://deno.land/x/zod@v3.16.1/mod.ts"
   },
   "tasks": {
-    "start": "deno run --allow-net main.ts"
+    "start": "deno run -A --watch main.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",
