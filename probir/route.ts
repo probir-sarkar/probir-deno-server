@@ -9,9 +9,11 @@ app.get("/projects", (c) => {
 
 app.post("/contact-form", async (c) => {
   try {
+    // origin
+    const origin = c.req.raw.headers.get("origin") || "";
     const body = await c.req.json();
     const data = contactFormSchema.parse(body);
-    const sendMessage = await sendTelegramMessage(data);
+    const sendMessage = await sendTelegramMessage({...data, origin});
     return c.json({ success: sendMessage ? true : false });
   } catch (e) {
     return c.json({ success: false, message: "Failed to send message" });

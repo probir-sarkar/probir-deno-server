@@ -24,15 +24,14 @@ export async function telegramMessageSender(message: String) {
   }
 }
 
-export async function sendTelegramMessage({ name, email, message }: ContactFields) {
+type TelegramFields = ContactFields & { origin: string };
+export async function sendTelegramMessage({ name, email, message, origin }: TelegramFields) {
   const formattedMessage = `
-    📬 <b>New Contact Form Submission </b>
-    🤖 <b>Name:</b>
-    ${name}
-    📧<b>Email:</b>
-    ${email}
-    🗨️<b>Message:</b>
-    ${message}
+    📬 <b>New Contact Form Submission</b>\n
+    <b>🤖 Name:</b> ${name}\n
+    <b>📧 Email:</b> ${email}\n
+    <b>🗨️ Message:</b> ${message}\n
+    <b>🌐 Origin:</b> ${origin}
   `;
   return await telegramMessageSender(formattedMessage);
 }
