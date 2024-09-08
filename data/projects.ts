@@ -1,4 +1,20 @@
-export const projects = [
+export type Project = {
+  name: string;
+  description: string;
+  github: string;
+  live: string;
+  stack: string[];
+};
+export type Projects = Project[];
+
+export const projects: Projects = [
+  {
+    name: "Posivitus",
+    description: "A modern digital marketing template built with Next.js and Tailwind CSS.",
+    github: "https://github.com/probir-sarkar/positivus",
+    live: "https://positivus-theme.vercel.app/",
+    stack: ["Next.js", "Tailwind CSS", "Shadcn/ui"]
+  },
   {
     name: "Taskify",
     description: "A simple todo app with realtime sync using Firebase.",
@@ -48,20 +64,7 @@ export const projects = [
     live: "https://one-liner-js.deno.dev/",
     stack: ["Deno", "Fresh", "Preact"]
   },
-  {
-    name: "Amsoil Clone",
-    description: "Clone of the AMSOIL Off-Road Championship using PHP and Bootstrap",
-    github: "https://github.com/probir-sarkar/champ",
-    live: "https://probir-sarkar.000webhostapp.com/projects/champ/",
-    stack: ["php", "bootstrap"]
-  },
-  {
-    name: "CREAT INFINITE SOLUTIONS",
-    description: "CREAT Infinite Solutions is a technology company with a global presence.",
-    github: "https://github.com/probir-sarkar/CREAT",
-    live: "https://probir-sarkar.000webhostapp.com/projects/creat",
-    stack: ["PHP", "BootStrap"]
-  },
+
   {
     name: "Personal Portfolio - Dev",
     description: "Dev variant of the personal website of Probir, built with Next.js.",
@@ -75,7 +78,19 @@ export const projects = [
     github: "https://github.com/probir-sarkar/TaskMaster",
     live: "https://task-master.probir.dev/",
     stack: ["React.Js", "Node.js", "PostgreSQL"]
+  },
+  {
+    name: "Amsoil Clone",
+    description: "Clone of the AMSOIL Off-Road Championship using PHP and Bootstrap",
+    github: "https://github.com/probir-sarkar/champ",
+    live: "https://probir-sarkar.000webhostapp.com/projects/champ/",
+    stack: ["php", "bootstrap"]
+  },
+  {
+    name: "CREAT INFINITE SOLUTIONS",
+    description: "CREAT Infinite Solutions is a technology company with a global presence.",
+    github: "https://github.com/probir-sarkar/CREAT",
+    live: "https://probir-sarkar.000webhostapp.com/projects/creat",
+    stack: ["PHP", "BootStrap"]
   }
 ];
-export type Project = (typeof projects)[number];
-export type Projects = Project[];
